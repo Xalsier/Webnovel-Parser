@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../new/style.css" type="text/css">
+</head>
+<body>
+    <nav>
+        <button id="options" onclick="toggleOptions();">Options</button>
+        <div id="nav-buttons">
+            <button id="zero" value="0"></button>
+            <button id="back" direction="left" onclick="pageTurnBack();">Previous Page</button>
+            <button id="next" direction="right" onclick="pageTurnNext();">Next Page</button>
+        </div>
+        <div id="nav-options" style="display: none;">
+            <label for="web">Scroll mode:</label>
+            <input id="web" type="checkbox" onclick="pageOrScroll();">
+            <label for="fontSizeSelector">Font Size:</label>
+            <select id="fontSizeSelector" onchange="changeFontSize(this.value);">
+                <option value="12px">12</option>
+                <option value="14px">14</option>
+                <option value="16px">16</option>
+                <option value="18px">18</option>
+                <option value="20px">20</option>
+                <option value="22px">22</option>
+                <option value="24px">24</option>
+            </select>
+            <label for="authorSkip">Remove notes</label>
+            <input id="authorSkip" type="checkbox">
+        </div>
+        <button>Return</button>
+    </nav>
+    
+      
+    <main>
+        <!-- Pages will be generated dynamically -->
+    </main>
+    <script src="../new/page.js"></script>
+    <script src="../new/options.js"></script>
+    <script src="../new/scroll.js"></script>
+    <script src="../new/font.js"></script>
+</body>
+</html>

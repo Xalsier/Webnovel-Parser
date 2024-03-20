@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+}
+
+nav {
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    min-height: 10vh;
+    align-items: center;
+    justify-content: center;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    gap: 10px;
+    padding: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    z-index: 2;
+    transition: opacity 0.5s;
+    opacity: 0; /* Start with full opacity */
+}
+
+nav:hover {
+    opacity: 1;
+}
+
+nav button,
+nav label {
+    white-space: nowrap; /* Ensure text doesn't wrap */
+    height: 50%;
+    border: 1px solid #ccc; /* Subtle border */
+    background-color: #f9f9f9; /* Light background */
+    color: black; /* Text color */
+    padding: 5px 10px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor indicates clickable */
+    margin: 2px; /* Spacing around buttons */
+}
+
+nav button:hover,
+nav button:active {
+    background-color: #e1e1e1; /* Slightly darker on hover/active */
+}
+
+main {
+    position: flex;
+    width: 100%;
+    background-color: gray;
+    overflow: hidden; /* Hide overflow in page mode */
+    z-index: 1;
+}
+
+
+@media (min-width: 768px) {
+    main {
+        height: 7.2in; /* Height of a typical Japanese light novel */
+        display: block; /* Use block layout by default */
+        width: 5in; /* Width of a typical Japanese light novel */
+    }
+
+    .scroll-mode {
+        margin-top: 10vh;
+        height: auto; /* Height becomes auto in scroll mode */
+        display: block; /* Stack pages vertically */ 
+    }
+
+}
+
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 7.2in;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.inactive {
+    display: none;
+}
+
+/* Scroll mode specific styles */
+.scroll-mode main {
+    overflow: auto; /* Allow scrolling */
+}
+
+.scroll-mode .page {
+    height: auto; /* Each page takes only the space it needs */
+    min-height: 7.2in;; /* Ensure it's at least the viewport height, can be adjusted as needed */
+}
+
+#nav-options {
+    display: flex; /* Align options horizontally */
+}
+
+label {
+    color: black;
+    align-self: center; /* Center label vertically */
+    margin: 0; /* Remove default margin */
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#options {
+    order: -1; /* Ensure options button is always accessible */
+}
